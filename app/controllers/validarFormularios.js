@@ -35,9 +35,9 @@ $(document).ready(() => {
 			},
 			inputTelefono:{
 				required: true,
-                number: true,
-                minlength: 9,
-                maxlength: 9
+        number: true,
+        minlength: 9,
+        maxlength: 9
 			},
 			inputPassword:{
 				required: true,

@@ -22,7 +22,7 @@ if(isset($_SESSION["token"]) && isset($_SESSION["id"])){
 	$pagado = $persona["pagado"];
 }
 ?>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -51,17 +51,17 @@ if(isset($_SESSION["token"]) && isset($_SESSION["id"])){
 			<p>Proyecto desarrollado por los hermanos Renedo González</p>
 		</div>
 		<div class="div-inicioSesion">	
-			<?php
+			<!-- <?php
 			if(!isset($_SESSION["id"])){
 				include "views/fromInicioSesion.html";
 			}else{
 				include "views/sesionIniciada.php";
 			}
-			?>
+			?> -->
 		</div>
 	</div>
 	<script type="text/javascript" src="views/menu.js"></script>
 	<script type="text/javascript" src="controllers/inicio.js"></script>
 	<script type="text/javascript" src="controllers/validarFormularios.js"></script>
 </body>
-</html>
+</html> -->
