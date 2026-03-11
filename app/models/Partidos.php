@@ -4,9 +4,7 @@ class Partidos {
   public static function obtenerPartidosApuestas() {
     global $db;
 
-    session_start();
-    // $id = $_SESSION["id"];
-    $id = 1;
+    $id = $_SESSION["id"];
 
     $sql = "SELECT 
       partidos.id,
@@ -33,15 +31,10 @@ class Partidos {
       ON partidos.id = apuestas.id_partido and apuestas.id_persona= ?
       ORDER BY fecha";
 
-    // $partidos = obtenerArraySQL($conexion, $sql);
     $stmt = $db->prepare($sql);
     $stmt->execute([$id]);
 
-    $json = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    // $json["id"] = isset($_SESSION["id"]) ? $_SESSION["id"] : null;
-
-    // echo json_encode($json);
-    return $json;
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 }
 

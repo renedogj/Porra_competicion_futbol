@@ -6,11 +6,11 @@ $.ajax({
 	url: "obtenerPartidosApuestas",
 	success: function(partidos){
 
-		for (grupo of grupos){
+		for (let grupo of grupos){
 			if(isNaN(grupo)){
-				partidosGrupos[0][grupo] = partidos.filter(comprobarGrupo,grupo);
+				partidosGrupos[0][grupo] = partidos.filter(comprobarGrupo, grupo);
 			}else{
-				partidosGrupos[1][grupo] = partidos.filter(comprobarGrupo,grupo);
+				partidosGrupos[1][grupo] = partidos.filter(comprobarGrupo, grupo);
 			}
 		}
 		mostrarPartidosPorGrupos(partidosGrupos);
@@ -25,7 +25,7 @@ $.ajax({
 	dataType: "json"
 });
 
-function comprobarGrupo(partido, index, partidos){
+function comprobarGrupo(partido){
 	if(partido.faseGrupos == 1){
 		if(partido.grupo_1 == partido.grupo_2){
 			return partido.grupo_1 == this
@@ -34,7 +34,6 @@ function comprobarGrupo(partido, index, partidos){
 	}else{
 		return partido.faseGrupos == this;
 	}
-	return false;
 }
 
 $("#selectDisplay").change(() => {

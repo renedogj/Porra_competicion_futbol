@@ -33,6 +33,8 @@ class AuthService {
     $_SESSION["nombre"] = $persona["nombre"];
     $_SESSION["puntuacion"] = $persona["puntuacion"];
     $_SESSION["email"] = $persona["email"];
+    $_SESSION["emailVerificado"] = $persona["email_verificado"];
+    $_SESSION["pagado"] = $persona["pagado"];
 
     return $persona;
   }
