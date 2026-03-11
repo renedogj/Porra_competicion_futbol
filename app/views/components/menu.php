@@ -3,15 +3,15 @@
     <a href="/Porra_competicion_futbol/public/">Inicio</a>
   </div>
   <div class="div-menu-item">
-    <a href="/Porra_competicion_futbol/public/partidos">Vota por partidos</a>
+    <a href="partidos">Vota por partidos</a>
   </div>
   <div class="div-menu-item">
-    <a href="/Porra_competicion_futbol/public/clasificatoria">Vota el ganador</a>
+    <a href="clasificatoria">Vota el ganador</a>
   </div>
   <div class="div-menu-item">
-    <a href="/Porra_competicion_futbol/public/clasificaciones">Clasificacion de participantes</a>
+    <a href="clasificaciones">Clasificacion de participantes</a>
   </div>
   <div class="div-menu-item">
-    <a href="/Porra_competicion_futbol/public/instrucciones">Instrucciones</a>
+    <a href="instrucciones">Instrucciones</a>
   </div>
 </nav>

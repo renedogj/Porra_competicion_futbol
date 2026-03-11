@@ -40,3 +40,11 @@ class Router {
 
 Router::get('/', 'homeController@index');
 Router::get('clasificatoria', 'clasificatoriaController@index');
+Router::get('clasificaciones', 'clasificacionesController@index');
+Router::get('partidos', 'partidosController@index');
+
+Router::get('obtenerClasificaciones', 'clasificacionesController@obtenerClasificaciones');
+Router::get('obtenerPartidosApuestas', 'partidosController@obtenerPartidosApuestas');
+
+Router::post('logout', 'AuthController@logout');
+Router::post('login', 'AuthController@login');

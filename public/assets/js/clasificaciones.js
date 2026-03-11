@@ -1,3 +1,17 @@
+$.ajax({
+	method: "GET",
+	url: "obtenerClasificaciones",
+	success: function(result){
+		clasificacion = result["clasificacion"];
+		id = result["id"];
+		mostrarClasificaciones(clasificacion,id);
+	},
+	error(error){
+		console.log(error)
+	},
+	dataType: "json"
+});
+
 function mostrarClasificaciones(clasificacion, id){
 	for(i in clasificacion){
 		$("#tablaClasificaciones").append(
