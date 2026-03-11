@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 session_start();
 if(isset($_SESSION["token"]) && isset($_SESSION["id"])){
 	$token = $_SESSION["token"];
@@ -21,7 +21,7 @@ if(isset($_SESSION["token"]) && isset($_SESSION["id"])){
 	$emailVerificado = $persona["email_verificado"];
 	$pagado = $persona["pagado"];
 }
-?>
+?> -->
 <!-- <!DOCTYPE html>
 <html>
 <head>
@@ -51,13 +51,13 @@ if(isset($_SESSION["token"]) && isset($_SESSION["id"])){
 			<p>Proyecto desarrollado por los hermanos Renedo González</p>
 		</div>
 		<div class="div-inicioSesion">	
-			<!-- <?php
-			if(!isset($_SESSION["id"])){
-				include "views/fromInicioSesion.html";
-			}else{
-				include "views/sesionIniciada.php";
-			}
-			?> -->
+			 <?php
+			// if(!isset($_SESSION["id"])){
+			// 	include "views/fromInicioSesion.html";
+			// }else{
+			// 	include "views/sesionIniciada.php";
+			// }
+			// ?> 
 		</div>
 	</div>
 	<script type="text/javascript" src="views/menu.js"></script>

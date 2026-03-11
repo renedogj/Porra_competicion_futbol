@@ -6,11 +6,10 @@ $("#formInicioSesion").submit(() => {
 
 		$.ajax({
 			method: "POST",
-			url: "models/iniciarSesion.php",
+			url: "login",
 			data: datosInicioSesion,
 			success: function(result){
-				console.log(result)
-				if(!result.error){
+				if(result.userVerified){
 					location.reload();
 				}else{
 					$("#label-inicioIncorrecto").text("Email o Contraseña incorrectos");
@@ -18,6 +17,8 @@ $("#formInicioSesion").submit(() => {
 				}
 			},error(xhr,status,error){
 				console.error(error)
+					$("#label-inicioIncorrecto").text("Se ha producido un error al iniar sesión");
+					$("#label-inicioIncorrecto").show();
 			},
 			dataType: "json"
 		});
@@ -28,8 +29,9 @@ $("#formInicioSesion").submit(() => {
 $("#bttn-cerrarSesion").click(() => {
 	$.ajax({
 		method: "POST",
-		url: "models/cerrarSesion.php",
+		url: "logout",
 		success: function(infoUsuario){
+			console.log(infoUsuario)
 			location.reload();
 		},
 		dataType: "text"

@@ -27,6 +27,9 @@ class User {
   public static function login($email, $password) {
     global $db;
 
+    $json = [];
+    $json["userVerified"] = false;
+
     $trimmedEmail = trim($email);
     $hashedPassword = md5(trim($password));
 
@@ -39,17 +42,48 @@ class User {
     if ($user) {
       $updateStmt = $db->prepare("UPDATE personas SET fecha_inicio_sesion = CURRENT_TIMESTAMP WHERE id = ?");
       $updateStmt->execute([$user['id']]);
-
+      
+      session_start();
       $_SESSION["id"] = $user["id"];
       $_SESSION["nombre"] = $user["nombre"];
       $_SESSION["puntuacion"] = $user["puntuacion"];
       $_SESSION["email"] = $user["email"];
       $_SESSION["token"] = $user["user_token"];
 
-      return $user;
+      $json["userVerified"] = true;
     }
 
-    return null;
+    return $json;
+
+    // session_start();
+    // $email = trim(addslashes($_POST["email"]));
+    // $password = MD5(trim($_POST["password"]));
+
+    // include_once "../db/db.php";
+
+    // $sql = "SELECT id, nombre, email, puntuacion, user_token FROM personas WHERE email='$email' and password='$password'";
+
+    // $usuario = obtenerArraySQL($conexion, $sql);
+
+    // $json = [];
+    // if(count($usuario) != 0){
+    //   $json["error"] = false;
+    //   $usuario = $usuario[0];
+
+    //   $idUsuario = $usuario["id"];
+
+    //   $sql = "UPDATE personas SET fecha_inicio_sesion = CURRENT_TIMESTAMP WHERE id='$idUsuario'";
+    //   $conexion->exec($sql);
+      
+    //   $_SESSION["id"] = $usuario["id"];
+    //   $_SESSION["nombre"] = $usuario["nombre"];
+    //   $_SESSION["puntuacion"] = $usuario["puntuacion"];
+    //   $_SESSION["email"] = $email;
+    //   $_SESSION["token"] = $usuario["user_token"];
+    // }else{
+    //   $json["error"] = true;
+    // }
+    // echo json_encode($json);
   }
 
   

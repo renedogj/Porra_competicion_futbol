@@ -1,4 +1,6 @@
 <?php
+require_once "../app/models/User.php";
+
 class AuthController {
   public function register() {
     $email = $_POST["email"];
@@ -15,21 +17,12 @@ class AuthController {
   }
 
   public function login() {
-
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-    $user = 9::findByEmail($email);
+    $user = User::login($email, $password);
 
-    if(!$user || !password_verify($password, $user["password"])){
-      echo json_encode(["error" => true]);
-      return;
-    }
-
-    $_SESSION["user_id"] = $user["id"];
-
-    echo json_encode(["success" => true]);
-
+    echo json_encode($user);
   }
 
   public function logout(){
