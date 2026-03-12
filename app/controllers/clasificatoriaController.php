@@ -1,4 +1,6 @@
 <?php
+require_once "../app/models/ApuestaGanador.php";
+
 class clasificatoriaController {
   public function index() {
     $styles = [
@@ -16,6 +18,16 @@ class clasificatoriaController {
     $content = ob_get_clean();
 
     require "../app/views/layouts/main.php";
+  }
+ 
+  public function obtenerApuestas() {
+    $apuestas = ApuestaGanador::obtenerApuestas();
+    echo json_encode($apuestas);
+  }
+
+  public function obtenerApuestaUsuario() {
+    $apuestaUser = ApuestaGanador::obtenerApuestaUsuario();
+    echo json_encode($apuestaUser);
   }
 }
 ?>

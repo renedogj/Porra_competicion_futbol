@@ -11,12 +11,10 @@ try {
 	echo $e->getMessage(); 	 	 	 	 	 	
 }
 
-function obtenerArraySQL($db, $sql){
+function obtenerArraySQL($db, $sql, $params = []){
 	$stmt = $db->prepare($sql);
-	$stmt->execute();
-	$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+	$stmt->execute($params);
 
-	//return new RecursiveArrayIterator($stmt->fetchAll());
-	return $stmt->fetchAll();
+  return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 ?>
