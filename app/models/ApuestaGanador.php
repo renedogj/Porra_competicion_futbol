@@ -63,37 +63,35 @@ class ApuestaGanador {
 
   
   public static function apostar() {
-    session_start();
+    global $db;
+
+    if (!isset($_SESSION["id"]) || !isset($_POST["puesto_1"]) || !isset($_POST["puesto_2"])) {
+      echo json_encode(["error" => true, "message" => "Faltan parámetros requeridos."]);
+      return;
+    }
+
     $id = $_SESSION["id"];
     $puesto_1 = $_POST["puesto_1"];
     $puesto_2 = $_POST["puesto_2"];
 
-    include_once "../db/db.php";
-
     $json = [];
-    try{
-      $sql = "INSERT INTO apuestas_clasificacion (id_persona, puesto_1, puesto_2) VALUES ('$id', '$puesto_1', '$puesto_2')";
-      $conexion->exec($sql);
+    try {
+      $sql = "INSERT INTO apuestas_clasificacion (id_persona, puesto_1, puesto_2) 
+              VALUES (:id_persona, :puesto_1, :puesto_2)
+              ON DUPLICATE KEY UPDATE puesto_1 = VALUES(puesto_1), puesto_2 = VALUES(puesto_2)";
+
+      obtenerArraySQL($db, $sql, [
+        ':id_persona' => $id,
+        ':puesto_1' => $puesto_1,
+        ':puesto_2' => $puesto_2
+      ]);
+
       $json["error"] = false;
-      $json["d"] = "d";
     } catch(PDOException $e) {
       $json["error"] = true;
-      $json["c"] = "c";
-      if($e->getCode() == 23000 && $e->errorInfo[1] == 1062){
-          $sql = "UPDATE apuestas_clasificacion SET puesto_1 = $puesto_1, puesto_2 = $puesto_2 WHERE id_persona = $id";
-          $json["sql"] = $sql;
-        try{
-          $conexion->exec($sql);
-
-          $json["error"] = false;
-          $json["b"] = "b";
-        }catch (PDOException $e){
-          $json["error"] = true;
-          $json["a"] = "A";
-        }
-      }
+      $json["message"] = "Ha ocurrido un error en la base de datos al guardar la apuesta.";
     }
-    echo json_encode($json);
+    return $json;
 
   }
 }

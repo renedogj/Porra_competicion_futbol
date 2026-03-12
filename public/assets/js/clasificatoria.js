@@ -1,4 +1,4 @@
-fechaInicioCompeticion = new Date("2024-06-14 21:00");
+fechaInicioCompeticion = new Date("2026-06-14 21:00");
 
 $.ajax({
 	method: "GET",
@@ -62,7 +62,7 @@ $("#guardarPorraClasificacion").click(() => {
 		}else{
 			$.ajax({
 				method: "POST",
-				url: "../models/porraClasificatoria.php",
+				url: "apostar",
 				data: {
 					puesto_1 : $("#puesto_1").val(),
 					puesto_2 : $("#puesto_2").val(),

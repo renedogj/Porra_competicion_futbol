@@ -49,5 +49,7 @@ Router::get('obtenerPaises', 'clasificatoriaController@obtenerPaises');
 Router::get('obtenerApuestas', 'clasificatoriaController@obtenerApuestas');
 Router::get('obtenerApuestaUsuario', 'clasificatoriaController@obtenerApuestaUsuario');
 
+Router::post('apostar', 'clasificatoriaController@apostar');
+
 Router::post('logout', 'AuthController@logout');
 Router::post('login', 'AuthController@login');

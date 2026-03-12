@@ -31,6 +31,11 @@ class clasificatoriaController {
     echo json_encode($apuestaUser);
   }
 
+  public function apostar() {
+    $apostar = ApuestaGanador::apostar();
+    echo json_encode($apostar);
+  }
+
   public function obtenerPaises() {
     $paises = Paises::obtenerPaises();
     echo json_encode($paises);
