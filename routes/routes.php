@@ -45,6 +45,7 @@ Router::get('partidos', 'partidosController@index');
 
 Router::get('obtenerClasificaciones', 'clasificacionesController@obtenerClasificaciones');
 Router::get('obtenerPartidosApuestas', 'partidosController@obtenerPartidosApuestas');
+Router::get('obtenerPaises', 'clasificatoriaController@obtenerPaises');
 Router::get('obtenerApuestas', 'clasificatoriaController@obtenerApuestas');
 Router::get('obtenerApuestaUsuario', 'clasificatoriaController@obtenerApuestaUsuario');
 

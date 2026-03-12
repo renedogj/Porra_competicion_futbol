@@ -1,31 +1,29 @@
 fechaInicioCompeticion = new Date("2024-06-14 21:00");
 
-// $.ajax({
-// 	method: "POST",
-// 	url: "../models/obtenerPaises.php",
-// 	success: function(paises){
-// 		for(pais of paises){
-// 			$(".selectPaises").append(
-// 				$("<option>").val(pais.id).text(pais.nombre)
-// 			);
-// 		}
-// 		if(fechaInicioCompeticion < new Date().getTime()){
-// 			$(".selectPaises").attr('disabled','disabled');
-// 		}
-// 	},
-// 	error(xhr,status,error){
-// 		console.error(error)
-// 	},
-// 	dataType: "json",
-// 	async: false
-// });
+$.ajax({
+	method: "GET",
+	url: "obtenerPaises",
+	success: function(paises){
+		for(pais of paises){
+			$(".selectPaises").append(
+				$("<option>").val(pais.id).text(pais.nombre)
+			);
+		}
+		if(fechaInicioCompeticion < new Date().getTime()){
+			$(".selectPaises").attr('disabled','disabled');
+		}
+	},
+	error(xhr,status,error){
+		console.error(error)
+	},
+	dataType: "json",
+	async: false
+});
 
 $.ajax({
 	method: "GET",
 	url: "obtenerApuestaUsuario",
 	success: function(result){
-		console.log(result);
-		// document.writeln(result)
 		if(result.length != 0){
 			$("#puesto_1").val(result[0].puesto_1);
 			$("#puesto_2").val(result[0].puesto_2);
@@ -33,7 +31,7 @@ $.ajax({
 			$("#puesto_4").val(result[0].puesto_4);
 		}
 	},
-	error(xhr,status,error){
+	error(error){
 		console.error(error)
 	},
 	dataType: "json"

@@ -1,5 +1,6 @@
 <?php
 require_once "../app/models/ApuestaGanador.php";
+require_once "../app/models/Paises.php";
 
 class clasificatoriaController {
   public function index() {
@@ -28,6 +29,11 @@ class clasificatoriaController {
   public function obtenerApuestaUsuario() {
     $apuestaUser = ApuestaGanador::obtenerApuestaUsuario();
     echo json_encode($apuestaUser);
+  }
+
+  public function obtenerPaises() {
+    $paises = Paises::obtenerPaises();
+    echo json_encode($paises);
   }
 }
 ?>
