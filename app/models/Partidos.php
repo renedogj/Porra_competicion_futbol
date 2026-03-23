@@ -66,7 +66,7 @@ class Partidos {
       ON partidos.id = apuestas.id_partido and apuestas.id_persona= ?
       WHERE partidos.id = ?";
 
-    return obtenerArraySQL($conexion, $sql, [$id, $idPartido])[0];
+    return obtenerArraySQL($db, $sql, [$id, $idPartido])[0];
   }
 
   public static function obternerApuestaspartido() {
@@ -86,7 +86,7 @@ class Partidos {
       ON apuestas.id_persona = personas.id
       WHERE apuestas.id_partido = ?";
 
-    $json["porrasPartido"] = obtenerArraySQL($conexion, $sql, [$idPartido]);
+    $json["porrasPartido"] = obtenerArraySQL($db, $sql, [$idPartido]);
     $json["id"] = $_SESSION["id"];
 
     return $json;

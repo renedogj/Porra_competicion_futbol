@@ -1,3 +1,11 @@
+<script type="text/javascript">
+	var idPartido = <?php echo '"'.$idPartido.'"'; ?>;
+</script>
+
+<?php
+  include "components/menu.php";
+?>
+
 <div class="divApuesta">
 	<h3>Tu porra</h3>
 	<div class="divFormApuesta">

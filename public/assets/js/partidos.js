@@ -83,7 +83,7 @@ function mostrarPartidosPorGrupos(partidos){
 				$("#tablePartidosGrupo-"+grupo).append(
 					$("<div>").addClass("divBoton").append(
 						$("<button>").addClass("button").attr("id","botonVotar-"+idPartido).text("Vota").click(() => {
-							window.location.assign("apuesta.php?idPartido="+idPartido);
+							window.location.assign("apuesta?idPartido="+idPartido);
 						})
 					),
 					$("<div>").addClass("divFecha").text(partido.fecha),
@@ -130,7 +130,7 @@ function mostrarPartidosPorFecha(partidos){
 		$("#divTablaPartidosPorFecha").append(
 			$("<div>").addClass("divBoton").append(
 				$("<button>").addClass("button").text("Vota").click(() => {
-					window.location.assign("apuesta.php?idPartido="+idPartido);
+					window.location.assign("apuesta?idPartido="+idPartido);
 				})
 			),
 			$("<div>").addClass("divFecha").text(partido.fecha),
