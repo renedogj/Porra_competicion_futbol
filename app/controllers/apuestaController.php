@@ -3,12 +3,20 @@ require_once "../app/models/Partidos.php";
 
 class apuestaController {
   public function index() {
-    if(isset($_GET["idPartido"])){
-	    $idPartido = $_GET["idPartido"];
-    } else {
-      header("Location: /");
-      die();
-    }
+    AuthService::checkSessionRedirect(
+      [
+        "idPartido",
+        // isset($_GET["idPartido"]),
+        // $_GET["idPartido"] || null
+      ]
+    );
+
+    // if(isset($_GET["idPartido"])){
+	  //   $idPartido = $_GET["idPartido"];
+    // } else {
+    //   header("Location: /");
+    //   die();
+    // }
 
     $styles = [
       "assets/css/apuesta.css",

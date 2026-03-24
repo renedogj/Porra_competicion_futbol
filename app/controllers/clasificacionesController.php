@@ -3,6 +3,8 @@ require_once "../app/models/User.php";
 
 class clasificacionesController {
   public function index() {
+    AuthService::checkSessionRedirect();
+    
     $styles = [
       "assets/css/tablas.css",
       "assets/css/partidos.css",

@@ -4,6 +4,8 @@ require_once "../app/models/Paises.php";
 
 class clasificatoriaController {
   public function index() {
+    AuthService::checkSessionRedirect();
+    
     $styles = [
       "assets/css/tablas.css",
       "assets/css/partidos.css",

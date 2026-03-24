@@ -4,8 +4,8 @@ var partidos = [];
 $.ajax({
 	method: "GET",
 	url: "obtenerPartidosApuestas",
-	success: function(partidos){
-
+	success: function(results){
+		partidos = results
 		for (let grupo of grupos){
 			if(isNaN(grupo)){
 				partidosGrupos[0][grupo] = partidos.filter(comprobarGrupo, grupo);
