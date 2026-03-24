@@ -35,3 +35,9 @@
 	<p class="contdown">La porra se cierra en: <span id="countdown-timer"></span></p>
 	<button id="bttnApostar" class="button">Apostar</button>
 </div>
+<?php
+	if($_SESSION["id"] == 1 || $_SESSION["id"] == 2){
+		// include "../views/irGuardarResultado.html";
+	}
+?>
+<div id="divPorrasPartido"></div>

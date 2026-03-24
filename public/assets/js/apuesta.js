@@ -37,9 +37,9 @@ $.ajax({
 		}	
 	},
 	error(xhr,status,error){
-		// alert("Se ha producido un error");
+		alert("Se ha producido un error");
 		console.log(error);
-		// window.location.assign("../");
+		window.location.assign("../");
 	},
 	dataType: "json",
 	async: false
@@ -109,7 +109,6 @@ if(fechaPartido < new Date().getTime()){
 			idPartido : idPartido,
 		},
 		success: function(result){
-			console.log(result);
 			porrasPartido = result["porrasPartido"];
 			id = result["id"];
 			mostrarPorrasPartido(porrasPartido);

@@ -3,20 +3,9 @@ require_once "../app/models/Partidos.php";
 
 class apuestaController {
   public function index() {
-    AuthService::checkSessionRedirect(
-      [
-        "idPartido",
-        // isset($_GET["idPartido"]),
-        // $_GET["idPartido"] || null
-      ]
-    );
+    AuthService::checkSessionRedirect(["idPartido"]);
 
-    // if(isset($_GET["idPartido"])){
-	  //   $idPartido = $_GET["idPartido"];
-    // } else {
-    //   header("Location: /");
-    //   die();
-    // }
+	  $idPartido = $_GET["idPartido"];
 
     $styles = [
       "assets/css/apuesta.css",
