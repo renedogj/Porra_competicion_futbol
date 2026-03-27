@@ -50,6 +50,8 @@ Router::get('obtenerApuestas', 'clasificatoriaController@obtenerApuestas');
 Router::get('obtenerApuestaUsuario', 'clasificatoriaController@obtenerApuestaUsuario');
 Router::get('apuesta', 'apuestaController@index');
 
+Router::get('instrucciones', 'instruccionesController@index');
+
 Router::post('apostar', 'clasificatoriaController@apostar');
 Router::post('obtenerPartido', 'apuestaController@obtenerPartido');
 Router::post('obternerApuestaspartido', 'apuestaController@obternerApuestaspartido');
