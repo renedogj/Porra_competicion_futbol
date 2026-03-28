@@ -2,9 +2,7 @@
 	var idPartido = <?php echo '"'.$idPartido.'"'; ?>;
 </script>
 
-<?php
-  include "components/menu.php";
-?>
+<?php include "components/menu.php";?>
 
 <div class="divApuesta">
 	<h3>Tu porra</h3>
@@ -37,7 +35,7 @@
 </div>
 <?php
 	if($_SESSION["id"] == 1 || $_SESSION["id"] == 2){
-		// include "../views/irGuardarResultado.html";
+		include "irGuardarResultado.html";
 	}
 ?>
 <div id="divPorrasPartido"></div>
