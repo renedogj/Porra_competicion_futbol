@@ -1,3 +1,5 @@
+<?php include "components/menu.php" ?>
+
 <div class="divApuesta">
 	<h3>Guardar Resultado</h3>
 	<div class="divFormApuesta">

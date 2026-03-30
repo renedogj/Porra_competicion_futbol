@@ -49,6 +49,7 @@ Router::get('obtenerPaises', 'clasificatoriaController@obtenerPaises');
 Router::get('obtenerApuestas', 'clasificatoriaController@obtenerApuestas');
 Router::get('obtenerApuestaUsuario', 'clasificatoriaController@obtenerApuestaUsuario');
 Router::get('apuesta', 'apuestaController@index');
+Router::get('guardarResultados', 'GuardarResultadosController@index');
 
 Router::get('instrucciones', 'instruccionesController@index');
 

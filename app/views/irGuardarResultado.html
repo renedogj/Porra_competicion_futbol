@@ -3,7 +3,7 @@
 </div>
 <script type="text/javascript">
 	function irGuardarPartido(){
-		location.assign('guardarResultados.php?idPartido='+idPartido);
+		location.assign('guardarResultados?idPartido='+idPartido);
 	}
 	if(fechaPartido > new Date().getTime()){
 		$("#divBotonGuardarResultado").hide();
