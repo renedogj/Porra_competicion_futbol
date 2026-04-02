@@ -50,6 +50,7 @@ Router::get('obtenerApuestas', 'clasificatoriaController@obtenerApuestas');
 Router::get('obtenerApuestaUsuario', 'clasificatoriaController@obtenerApuestaUsuario');
 Router::get('apuesta', 'apuestaController@index');
 Router::get('guardarResultados', 'GuardarResultadosController@index');
+Router::get('registrarse', 'registrarseController@index');
 
 Router::get('instrucciones', 'instruccionesController@index');
 
